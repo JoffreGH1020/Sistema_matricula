@@ -5,11 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Programa_ademico;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PhpParser\Node\Expr\AssignOp\Concat;
 
 class ProgramaAdemicoController extends Controller
 {
     public function mostrar_prog_acada(){
-        $proga = DB::table('programa_ademicos')->get();
+        $proga = DB::table('programa_ademicos')
+        ->select('asignatura', 'mallas.codigo', 'prerequisitos', 'creditos', 'carga_horaria',
+        'ciclo', 'semestre_academico', 'nombres', 'apellidos')
+        ->join('mallas', 'mallas.id', '=', 'programa_ademicos.malla_id')
+        ->join('cursos', 'cursos.id', '=', 'programa_ademicos.cursos_id')
+        ->join('docentes', 'docentes.id','=', 'programa_ademicos.docente_id')
+        ->get();
         return view("programa.mostrarProgr")
             ->with("proga", $proga);  
     }
