@@ -9,7 +9,12 @@ use App\Models\Malla;
 class MallaController extends Controller
 {
     public function mostrar_malla(){
-        $malla = DB::table('mallas')->get();
+        $malla = DB::table('mallas')
+            ->select('ciclo', 'codigo', 'tipo_de_estudio', 'asignatura',
+                    'HT_sema', 'HP_sema', 'TH_sema', 'HT_seme', 'HP_seme', 'TH_seme',
+                    'creditos', 'prerequisitos')
+            ->join('cursos', 'cursos.id', '=', 'mallas.curso_id')
+            ->get();
         return view("malla.mostrarMalla")
             ->with("malla", $malla);  
     }
