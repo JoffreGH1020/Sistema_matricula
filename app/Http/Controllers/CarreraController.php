@@ -10,9 +10,14 @@ use App\Models\Carrera;
 class CarreraController extends Controller
 {
     public function mostrar_carrera(){
-        $carrera = DB::table('carreras')->get();
+        if (session('tipo_usuario')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            $carrera = DB::table('carreras')->get();
         return view("carrera.mostrarCarr")
-            ->with("carrera", $carrera);  
+            ->with("carrera", $carrera); 
+        }
+         
     }
 
 

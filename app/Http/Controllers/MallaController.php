@@ -9,7 +9,10 @@ use App\Models\Malla;
 class MallaController extends Controller
 {
     public function mostrar_malla(){
-        $malla = DB::table('mallas')
+        if(session('tipo_usuario')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            $malla = DB::table('mallas')
             ->select('ciclo', 'codigo', 'tipo_de_estudio', 'asignatura',
                     'HT_sema', 'HP_sema', 'TH_sema', 'HT_seme', 'HP_seme', 'TH_seme',
                     'creditos', 'prerequisitos')
@@ -17,6 +20,8 @@ class MallaController extends Controller
             ->get();
         return view("malla.mostrarMalla")
             ->with("malla", $malla);  
+        }
+        
     }
 
     public function reg_mallas(Request $request){

@@ -10,7 +10,10 @@ use PhpParser\Node\Expr\AssignOp\Concat;
 class ProgramaAdemicoController extends Controller
 {
     public function mostrar_prog_acada(){
-        $proga = DB::table('programa_ademicos')
+        if (session('tipo_usuario')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            $proga = DB::table('programa_ademicos')
         ->select('asignatura', 'mallas.codigo', 'prerequisitos', 'creditos', 'carga_horaria',
         'ciclo', 'semestre_academico', 'nombres', 'apellidos')
         ->join('mallas', 'mallas.id', '=', 'programa_ademicos.malla_id')
@@ -19,6 +22,8 @@ class ProgramaAdemicoController extends Controller
         ->get();
         return view("programa.mostrarProgr")
             ->with("proga", $proga);  
+        }
+        
     }
 
 

@@ -10,9 +10,14 @@ use Illuminate\Support\Facades\Hash;
 class DocenteController extends Controller
 {
     public function mostrar_docente(){
-        $docente = DB::table('docentes')->get();
+        if (session('tipo_usuario')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            $docente = DB::table('docentes')->get();
         return view("docente.mostrarDocn")
-            ->with("docente", $docente);  
+            ->with("docente", $docente); 
+        }
+         
     }
 
 
