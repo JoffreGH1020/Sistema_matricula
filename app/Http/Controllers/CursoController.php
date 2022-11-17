@@ -9,14 +9,9 @@ use App\Models\Curso;
 class CursoController extends Controller
 {
     public function mostrar_cusos(){
-        if (session('tipo_usuario')!="administrador"){
-            return redirect(route("home"));
-        }else{
             $curso = DB::table('cursos')->get();
         return view("curso.mostrarCur")
         ->with("curso", $curso);
-        }
-        
     }
 
     public function reg_cursos(Request $request ){

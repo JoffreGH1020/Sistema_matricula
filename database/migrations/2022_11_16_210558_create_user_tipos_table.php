@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('user_tipos', function (Blueprint $table) {
             $table->id();
             $table->string('tipo');
-            $table->foreignId('user_id')->constrained()->nullable();;
+            $table->foreignId("user_id")->constrained();
         });
     }
 

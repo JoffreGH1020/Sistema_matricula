@@ -20,25 +20,25 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md"  style="background-color: #4281c6;">
+        <nav class="navbar navbar-expand-md" style="background-color: #4281c6;">
             <div class="container">
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
-                    <b>{{ config('app.name', 'Laravel') }}</b> 
+                    <b>{{ config('app.name', 'Laravel') }}</b>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent" >
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto navbar-dark">
                         @auth
                         @if (session('tipo_usuario')=="administrador")
                         <div class="dropdown container-fluid">
-                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;" >
-                                <b>Registrar</b> 
+                            <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
+                                <b>Registrar</b>
                             </button>
-                            <ul class="dropdown-menu" style="background-color: #d7d9da;" >
+                            <ul class="dropdown-menu" style="background-color: #d7d9da;">
                                 <li class="nav-item">
                                     <a class="dropdown-item" href="/ver/form/facultad">Registrar Facultad</a>
                                 </li>
@@ -56,12 +56,12 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="dropdown container-fluid">
-                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;" >
-                                <b>Mostrar</b> 
+                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
+                                <b>Mostrar</b>
                             </button>
-                            <ul class="dropdown-menu" style="background-color: #d7d9da;" >
+                            <ul class="dropdown-menu" style="background-color: #d7d9da;">
                                 <li class="nav-item">
                                     <a class="dropdown-item" href="/ver/facultad">Facultades</a>
                                 </li>
@@ -79,30 +79,38 @@
                                 </li>
                             </ul>
                         </div>
-                        
+
                         <div class="dropdown container-fluid">
-                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;" >
-                                <b>Registar usuarios</b> 
+                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
+                                <b>Registar usuarios</b>
                             </button>
-                            <ul class="dropdown-menu" style="background-color: #d7d9da;" >
+                            <ul class="dropdown-menu" style="background-color: #d7d9da;">
                                 <li class="nav-item">
                                     <a class="dropdown-item" href="/ver/form/docentes">Registrar Docente</a>
                                 </li>
                             </ul>
                         </div>
                         <div class="dropdown container-fluid">
-                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;" >
-                                <b>Mostrar usuarios</b> 
+                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
+                                <b>Mostrar usuarios</b>
                             </button>
-                            <ul class="dropdown-menu" style="background-color: #d7d9da;" >
+                            <ul class="dropdown-menu" style="background-color: #d7d9da;">
                                 <li class="nav-item">
                                     <a class="dropdown-item text-dark" href="/ver/docentes">Ver Docentes</a>
                                 </li>
                             </ul>
                         </div>
-
-
                         @endif
+                        <div class="dropdown container-fluid">
+                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
+                                <b>Mostrar</b>
+                            </button>
+                            <ul class="dropdown-menu" style="background-color: #d7d9da;">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="/ver/cursos">Cursos</a>
+                                </li>
+                            </ul>
+                        </div>
                         @endauth
                     </ul>
 
@@ -112,7 +120,7 @@
                         @guest
                         @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link text-light"  href="{{ route('login') }}"><b>{{ __('Login') }}</b> </a>
+                            <a class="nav-link text-light" href="{{ route('login') }}"><b>{{ __('Login') }}</b> </a>
                         </li>
                         @endif
 
@@ -122,14 +130,14 @@
                         </li>
                         @endif
                         @else
-                        <li class="nav-item dropdown" >
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre >
-                               <b>{{ Auth::user()->name }}</b> 
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <b>{{ Auth::user()->name }}</b>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit(); " >
+                                                     document.getElementById('logout-form').submit(); ">
                                     {{ __('Salir') }}
                                 </a>
 
@@ -144,7 +152,7 @@
             </div>
         </nav>
 
-        <main class="py-5" >
+        <main class="py-5">
             @yield('content')
         </main>
     </div>
