@@ -10,7 +10,7 @@ use PhpParser\Node\Expr\AssignOp\Concat;
 class ProgramaAdemicoController extends Controller
 {
     public function mostrar_prog_acada(){
-        if (session('tipo_usuario')!="administrador"){
+        if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
             $proga = DB::table('programa_ademicos')
@@ -45,6 +45,10 @@ class ProgramaAdemicoController extends Controller
     }
 
     public function mostrarform_prog_acada(){
+        if (session('tipo')!="administrador"){
+            return redirect(route("home"));
+        }else{
         return view("programa.formProga");
+        }
     }
 }

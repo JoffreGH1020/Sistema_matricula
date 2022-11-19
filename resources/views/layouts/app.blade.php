@@ -33,7 +33,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto navbar-dark">
                         @auth
-                        @if (session('tipo_usuario')=="administrador")
+                        @if (session('tipo')=="administrador")
                         <div class="dropdown container-fluid">
                             <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
                                 <b>Registrar</b>
@@ -101,6 +101,7 @@
                             </ul>
                         </div>
                         @endif
+                        @if (session('tipo')!="administrador")
                         <div class="dropdown container-fluid">
                             <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
                                 <b>Mostrar</b>
@@ -111,6 +112,7 @@
                                 </li>
                             </ul>
                         </div>
+                        @endif
                         @endauth
                     </ul>
 

@@ -9,7 +9,7 @@ use App\Models\Malla;
 class MallaController extends Controller
 {
     public function mostrar_malla(){
-        if(session('tipo_usuario')!="administrador"){
+        if(session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
             $malla = DB::table('mallas')
@@ -38,7 +38,11 @@ class MallaController extends Controller
     }
 
     public function mostrarform_malla(){
+        if (session('tipo')!="administrador"){
+            return redirect(route("home"));
+        }else{
         return view("malla.formMalla");
+        }
     }
 
 }

@@ -10,7 +10,7 @@ use App\Models\Carrera;
 class CarreraController extends Controller
 {
     public function mostrar_carrera(){
-        if (session('tipo_usuario')!="administrador"){
+        if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
             $carrera = DB::table('carreras')->get();
@@ -35,7 +35,12 @@ class CarreraController extends Controller
     }
 
     public function mostrarform_carr(){
-        return view("carrera.formCarr");
+        if(session('tipo')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            return view("carrera.formCarr");
+        }
+        
     }
     
 }

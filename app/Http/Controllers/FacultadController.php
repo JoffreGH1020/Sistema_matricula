@@ -9,7 +9,7 @@ use App\Models\Facultad;
 class FacultadController extends Controller
 {
     public function mostrar_facultad(){
-        if (session('tipo_usuario')!="administrador"){
+        if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
             $facultad = DB::table('facultads')->get();
@@ -34,6 +34,10 @@ class FacultadController extends Controller
     }
 
     public function mostrarform_facu(){
-        return view("facultad.formFacu");
+        if (session('tipo')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            return view("facultad.formFacu");
+        }
     }
 }

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class DocenteController extends Controller
 {
     public function mostrar_docente(){
-        if (session('tipo_usuario')!="administrador"){
+        if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
             $docente = DB::table('docentes')->get();
@@ -49,6 +49,10 @@ class DocenteController extends Controller
     }
 
     public function mostrarform_docn(){
-        return view("docente.formDocn");
+        if (session('tipo')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            return view("docente.formDocn");
+        }
     }
 }

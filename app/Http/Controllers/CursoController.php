@@ -45,6 +45,11 @@ class CursoController extends Controller
     }
 
     public function mostrarform_curso(){
-        return view("curso.formCur");
+        if (session('tipo')!="administrador"){
+            return redirect(route("home"));
+        }else{
+            return view("curso.formCur");
+        }
+        
     }
 }
