@@ -48,7 +48,8 @@ class CursoController extends Controller
         if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
-            return view("curso.formCur");
+            $carrera = DB::table('carreras')->get();
+            return view("curso.formCur")->with("carrera", $carrera);
         }
         
     }

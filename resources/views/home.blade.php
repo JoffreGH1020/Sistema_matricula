@@ -14,8 +14,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <h1>{{session("tipo")}}</h1>
-                    Hola {{ Auth::user()->name }}
+                    
+                    <h2>Hola {{ Auth::user()->name }}</h2> 
                 </div>
             </div>
         </div>

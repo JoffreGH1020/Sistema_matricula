@@ -17,7 +17,17 @@
                     <form action="/guardar/carrera" method="post">
                         @csrf
                         <input class="form-control" type="text" name="nombre_carr" placeholder="Ingrese carrera" value="{{ old("nombre_carr") }}"><br>
-                        <input class="form-control" type="text" name="facultad_id" placeholder="Ingrese id facultad" value="{{ old("facultad_id") }}"><br>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="facultad_id" id="facultad_id">
+                                    @foreach($facultad as $facultades)
+                                    <option value="{{$facultades->id}}">{{$facultades->nombre_facultad}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
                         <input class="btn btn-outline-primary" type="submit" value="Guardar"><br>
                 </div>
                 </form>

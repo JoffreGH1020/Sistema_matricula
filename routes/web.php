@@ -7,6 +7,7 @@ use App\Http\Controllers\CursoController;
 use App\Http\Controllers\MallaController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\ProgramaAdemicoController;
+use App\Http\Controllers\MatriculaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +50,7 @@ Route::get('/ver/form/docentes', [DocenteController::class, 'mostrarform_docn'])
 Route::get('/ver/programas', [ProgramaAdemicoController::class, 'mostrar_prog_acada'])->middleware("auth");
 Route::post('/guardar/programas', [ProgramaAdemicoController::class, 'reg_prog_acada'])->middleware("auth");
 Route::get('/ver/form/programas', [ProgramaAdemicoController::class, 'mostrarform_prog_acada'])->middleware("auth");
+
+Route::get('/ver/matriculas', [MatriculaController::class, 'mostrar_matri'])->middleware("auth");
+Route::post('/guardar/matriculas', [MatriculaController::class, 'reg_matri'])->middleware("auth");
+Route::get('/ver/form/matriculas', [MatriculaController::class, 'mostrarform_motri'])->middleware("auth");

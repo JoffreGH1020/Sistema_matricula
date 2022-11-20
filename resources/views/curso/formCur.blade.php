@@ -17,7 +17,18 @@
 
                     <form action="/guardar/cursos" method="post">
                         @csrf
-                        <input class="form-control" type="text" name="carrera_id" placeholder="Ingrese id carrera" value="{{ old("carrera_id") }}"><br>
+                        
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="carrera_id" id="carrera_id">
+                                    @foreach($carrera as $carreras)
+                                    <option value="{{$carreras->id}}">{{$carreras->nombre_carr}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
                         <input class="form-control" type="text" name="tipo_de_estudio" placeholder="Ingrese tipo de estudio" value="{{ old("tipo_de_estudio") }}"><br>
                         <input class="form-control" type="text" name="asignatura" placeholder="Ingrese asignatura" value="{{ old("asignatura") }}"><br>
                         <input class="form-control" type="text" name="ciclo" placeholder="Ingrese ciclo" value="{{ old("ciclo") }}"><br>

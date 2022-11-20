@@ -16,7 +16,17 @@
 
                     <form action="/guardar/docentes" method="post">
                         @csrf
-                        <input class="form-control" type="text" name="carrera_id" placeholder="Ingrese id carrera" value="{{ old("carrera_id") }}"><br>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="carrera_id" id="carrera_id">
+                                    @foreach($carrera as $carreras)
+                                    <option value="{{$carreras->id}}">{{$carreras->nombre_carr}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
                         <input class="form-control" type="text" name="nombres" placeholder="Ingrese nombres" value="{{ old("nombres") }}"><br>
                         <input class="form-control" type="text" name="apellidos" placeholder="Ingrese apellidos" value="{{ old("apellidos") }}"><br>
                         <input class="form-control" type="text" name="DNI" placeholder="Ingrese DNI" value="{{ old("DNI") }}"><br>
@@ -24,7 +34,18 @@
                         <input class="form-control" type="text" name="telefono" placeholder="Ingrese telefono" value="{{ old("telefono") }}"><br>
                         <input class="form-control" type="text" name="codigo" placeholder="Ingrese codigo" value="{{ old("codigo") }}"><br>
                         <input class="form-control" type="text" name="contraseña" placeholder="Ingrese contraseña" value="{{ old("contraseña") }}"><br>
-                        <input class="form-control" type="text" name="estado" placeholder="Ingrese estado" value="{{ old("estado") }}"><br>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="estado" id="estado">
+                                    
+                                    <option value="1">Activo</option>
+                                    <option value="0">Inactivo</option>
+                                    
+                                </select>
+                                
+                            </div>
+                        </div>
                         <input class="btn btn-outline-primary" type="submit" value="Guardar"><br>
                 </div>
                 </form>

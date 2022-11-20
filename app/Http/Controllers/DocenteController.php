@@ -52,7 +52,8 @@ class DocenteController extends Controller
         if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
-            return view("docente.formDocn");
+            $carrera = DB::table('carreras')->get();
+            return view("docente.formDocn")->with("carrera", $carrera);
         }
     }
 }

@@ -100,6 +100,13 @@
                                 </li>
                             </ul>
                         </div>
+
+                        
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{{ route('register') }}"><b> {{ __('Register') }}</b></a>
+                        </li>
+                        
+                        
                         @endif
                         @if (session('tipo')!="administrador")
                         <div class="dropdown container-fluid">
@@ -109,6 +116,20 @@
                             <ul class="dropdown-menu" style="background-color: #d7d9da;">
                                 <li class="nav-item">
                                     <a class="dropdown-item" href="/ver/cursos">Cursos</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="/ver/matriculas">Matrícula</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <div class="dropdown container-fluid">
+                            <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #f0f1f1;">
+                                <b>Registrar</b>
+                            </button>
+                            <ul class="dropdown-menu" style="background-color: #d7d9da;">
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="/ver/form/matriculas">Matricula</a>
                                 </li>
                             </ul>
                         </div>
@@ -126,11 +147,7 @@
                         </li>
                         @endif
 
-                        @if (Route::has('register'))
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('register') }}"><b> {{ __('Register') }}</b></a>
-                        </li>
-                        @endif
+                        
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

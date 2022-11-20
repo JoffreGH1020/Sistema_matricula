@@ -41,7 +41,8 @@ class MallaController extends Controller
         if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
-        return view("malla.formMalla");
+            $curso = DB::table('cursos')->get();
+        return view("malla.formMalla")->with("curso", $curso);
         }
     }
 

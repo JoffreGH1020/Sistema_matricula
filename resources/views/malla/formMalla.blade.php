@@ -16,7 +16,18 @@
 
                     <form action="/guardar/mallas" method="post">
                         @csrf
-                        <input class="form-control" type="text" name="curso_id" placeholder="Ingrese ID del curso" value="{{ old("curso_id") }}"><br>
+                        
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="curso_id" id="curso_id">
+                                    @foreach($curso as $cursos)
+                                    <option value="{{$cursos->id}}">{{$cursos->asignatura}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
                         <input class="form-control" type="text" name="codigo" placeholder="Ingrese codigo" value="{{ old("codigo") }}"><br>
                         <input class="form-control" type="text" name="prerequisitos" placeholder="Ingrese prerequisitos" value="{{ old("prerequisitos") }}"><br>
                         <input class="btn btn-outline-primary" type="submit" value="Guardar"><br>

@@ -15,7 +15,7 @@ class CarreraController extends Controller
         }else{
             $carrera = DB::table('carreras')->get();
         return view("carrera.mostrarCarr")
-            ->with("carrera", $carrera); 
+        ->with("carrera", $carrera);
         }
          
     }
@@ -38,7 +38,8 @@ class CarreraController extends Controller
         if(session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
-            return view("carrera.formCarr");
+            $facultad = DB::table('facultads')->get();
+            return view("carrera.formCarr")->with("facultad", $facultad);
         }
         
     }
