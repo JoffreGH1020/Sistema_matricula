@@ -17,7 +17,7 @@
                     <form action="/guardar/facultad" method="post">
                         @csrf
                         <input class="form-control" type="text" name="nombre_facultad" placeholder="Ingrese facultad" value="{{ old("nombre_facultad") }}"><br>
-                        <input class="btn btn-outline-primary"  type="submit" value="Guardar"><br>
+                        <input class="btn btn-outline-primary shadow"  type="submit" value="Guardar"><br>
                 </div>
                 </form>
 

@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Registro') }}</div>
+            <div class="card shadow p-3 mb-5 bg-body rounded">
+                <div class="card-header text-center" style="background-color: #d7e5f3;">{{ __('Registro de administrador y estudiante') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
@@ -47,7 +47,7 @@
                                     <option value="administrador">Administrador</option>
                                     <option value="estudiante">Estudiante</option>
                                 </select>
-                                
+
                             </div>
                         </div>
 
@@ -75,7 +75,7 @@
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary shadow">
                                     {{ __('Registrar') }}
                                 </button>
                             </div>

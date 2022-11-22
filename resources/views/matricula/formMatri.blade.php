@@ -18,6 +18,28 @@
                         @csrf
                         
                         <input class="form-control" type="text" name="curso" placeholder="Ingrese curso" value="{{old("curso")}}"><br>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="curso" id="curso">
+                                    @foreach($curso as $cursos)
+                                    <option value="{{$cursos->id}}">{{$cursos->asignatura}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="ciclo" id="ciclo">
+                                    @foreach($curso as $cursos)
+                                    <option value="{{$cursos->id}}">{{$cursos->ciclo}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
                         <input class="form-control" type="text" name="ciclo" placeholder="Ingrese ciclo" value="{{old("ciclo")}}"><br>
                         <input class="form-control" type="text" name="creditos" placeholder="Ingrese creditos" value="{{old("creditos")}}"><br>
                         <div class="row mb-3">
@@ -32,7 +54,7 @@
                             </div>
                         </div>
 
-                        <input class="btn btn-outline-primary" type="submit" value="Guardar"><br>
+                        <input class="btn btn-outline-primary shadow" type="submit" value="Guardar"><br>
                     </form>
 
                     @if ($errors->any())

@@ -36,6 +36,7 @@ class MatriculaController extends Controller
     }
 
     public function mostrarform_motri(){
-            return view("matricula.formMatri");
+            $curso = DB::table('cursos')->get();
+            return view("matricula.formMatri")->with("curso", $curso);
     }
 }

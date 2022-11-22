@@ -39,7 +39,7 @@
                         <input class="form-control" type="text" name="HT_seme" placeholder="Ingrese horas teoricas semestrales" value="{{ old("HT_seme") }}"><br>
                         <input class="form-control" type="text" name="HP_seme" placeholder="Ingrese horas practicas semestrales" value="{{ old("HP_seme") }}"><br>
                         <input class="form-control" type="text" name="TH_seme" placeholder="Ingrese horas totales semestrales" value="{{ old("TH_seme") }}"><br>
-                        <input class="btn btn-outline-primary" type="submit" value="Guardar"><br>
+                        <input class="btn btn-outline-primary shadow" type="submit" value="Guardar"><br>
                 </div>
                 </form>
 

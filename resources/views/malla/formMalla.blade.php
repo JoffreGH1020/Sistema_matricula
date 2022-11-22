@@ -30,7 +30,7 @@
                         </div>
                         <input class="form-control" type="text" name="codigo" placeholder="Ingrese codigo" value="{{ old("codigo") }}"><br>
                         <input class="form-control" type="text" name="prerequisitos" placeholder="Ingrese prerequisitos" value="{{ old("prerequisitos") }}"><br>
-                        <input class="btn btn-outline-primary" type="submit" value="Guardar"><br>
+                        <input class="btn btn-outline-primary shadow" type="submit" value="Guardar"><br>
                 </div>
                 </form>
                 @if ($errors->any())

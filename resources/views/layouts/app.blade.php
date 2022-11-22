@@ -88,6 +88,9 @@
                                 <li class="nav-item">
                                     <a class="dropdown-item" href="/ver/form/docentes">Registrar Docente</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="dropdown-item" href="{{ route('register') }}"> {{ __('Registrar admin o estudiante') }}</a>
+                                </li>
                             </ul>
                         </div>
                         <div class="dropdown container-fluid">
@@ -101,12 +104,10 @@
                             </ul>
                         </div>
 
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-light" href="{{ route('register') }}"><b> {{ __('Register') }}</b></a>
-                        </li>
-                        
-                        
+
+
+
+
                         @endif
                         @if (session('tipo')!="administrador")
                         <div class="dropdown container-fluid">
@@ -147,7 +148,7 @@
                         </li>
                         @endif
 
-                        
+
                         @else
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

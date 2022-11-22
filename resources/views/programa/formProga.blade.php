@@ -16,12 +16,42 @@
 
                     <form action="/guardar/programas" method="post">
                         @csrf
-                        <input class="form-control" type="text" name="malla_id" placeholder="Ingrese ID de la malla" value="{{ old("malla_id") }}"><br>
-                        <input class="form-control" type="text" name="cursos_id" placeholder="Ingrese ID de curso" value="{{ old("cursos_id") }}"><br>
-                        <input class="form-control" type="text" name="docente_id" placeholder="Ingrese ID de docente" value="{{ old("docente_id") }}"><br>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="malla_id" id="malla_id">
+                                    @foreach($malla as $mallas)
+                                    <option value="{{$mallas->id}}">{{$mallas->id}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="cursos_id" id="cursos_id">
+                                    @foreach($curso as $cursos)
+                                    <option value="{{$cursos->id}}">{{$cursos->asignatura}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+
+                            <div class="col-md-6">
+                                <select class="form-select" name="docente_id" id="docente_id">
+                                    @foreach($docente as $docentes)
+                                    <option value="{{$docentes->id}}">{{$docentes->nombres}}</option>
+                                    @endforeach
+                                </select>
+                                
+                            </div>
+                        </div>
                         <input class="form-control" type="text" name="carga_horaria" placeholder="Ingrese carga horaria" value="{{ old("carga_horaria") }}"><br>
                         <input class="form-control" type="text" name="semestre_academico" placeholder="Ingrese el semestre academico" value="{{ old("semestre_academico") }}"><br>
-                        <input class="btn btn-outline-primary" type="submit" value="Guardar"><br>
+                        <input class="btn btn-outline-primary shadow" type="submit" value="Guardar"><br>
                 </div>
                 </form>
 

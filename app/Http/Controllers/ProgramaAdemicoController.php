@@ -48,7 +48,11 @@ class ProgramaAdemicoController extends Controller
         if (session('tipo')!="administrador"){
             return redirect(route("home"));
         }else{
-        return view("programa.formProga");
+            $malla = DB::table('mallas')->get();
+            $curso = DB::table('cursos')->get();
+            $docente = DB::table('docentes')->get();
+        return view("programa.formProga")->with("malla", $malla)->with("curso", $curso)->with("docente", $docente);
+
         }
     }
 }
