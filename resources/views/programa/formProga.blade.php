@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow p-3 mb-5 bg-body rounded">
-                <div class="card-header text-center" style="background-color: #d7e5f3;">{{ __('Registro de programa academico') }}</div>
+                <div class="card-header text-center" style="background-color: #d7e5f3;"><b>{{ __('Registro de programa academico') }}</b></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,7 +17,7 @@
                     <form action="/guardar/programas" method="post">
                         @csrf
                         <div class="row mb-3">
-
+                        <label for="exampleInputEmail1" class="form-label">Ingrese la malla</label>
                             <div class="col-md-6">
                                 <select class="form-select" name="malla_id" id="malla_id">
                                     @foreach($malla as $mallas)
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-
+                        <label for="exampleInputEmail1" class="form-label">Ingrese el curso</label>
                             <div class="col-md-6">
                                 <select class="form-select" name="cursos_id" id="cursos_id">
                                     @foreach($curso as $cursos)
@@ -39,7 +39,7 @@
                             </div>
                         </div>
                         <div class="row mb-3">
-
+                        <label for="exampleInputEmail1" class="form-label">Ingrese el docente</label>
                             <div class="col-md-6">
                                 <select class="form-select" name="docente_id" id="docente_id">
                                     @foreach($docente as $docentes)
@@ -49,7 +49,9 @@
                                 
                             </div>
                         </div>
+                        <label for="exampleInputEmail1" class="form-label">Ingrese la carga horaria</label>
                         <input class="form-control" type="text" name="carga_horaria" placeholder="Ingrese carga horaria" value="{{ old("carga_horaria") }}"><br>
+                        <label for="exampleInputEmail1" class="form-label">Ingrese el semestre académico</label>
                         <input class="form-control" type="text" name="semestre_academico" placeholder="Ingrese el semestre academico" value="{{ old("semestre_academico") }}"><br>
                         <input class="btn btn-outline-primary shadow" type="submit" value="Guardar"><br>
                 </div>

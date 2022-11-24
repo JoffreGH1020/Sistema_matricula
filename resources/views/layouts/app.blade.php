@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-md" style="background-color: #4281c6;">
             <div class="container">
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
-                    <b>{{ config('app.name', 'Laravel') }}</b>
+                    <b>{{ config('MATIRCjoff', 'MATIRCjoff') }}</b>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -147,7 +147,11 @@
                             <a class="nav-link text-light" href="{{ route('login') }}"><b>{{ __('Login') }}</b> </a>
                         </li>
                         @endif
-
+                        @if (Route::has('register'))
+                        <li class="nav-item">
+                            <a class="dropdown-item" href="{{ route('register') }}"> {{ __('Registrar ') }}</a>
+                        </li>
+                        @endif
 
                         @else
                         <li class="nav-item dropdown">

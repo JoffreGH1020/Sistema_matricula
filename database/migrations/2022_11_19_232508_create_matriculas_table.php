@@ -15,11 +15,10 @@ return new class extends Migration
     {
         Schema::create('matriculas', function (Blueprint $table) {
             $table->id();
-            $table->string('curso');
-            $table->integer('ciclo');
-            $table->integer('creditos');
+            $table->foreignId("curso_id")->constrained("cursos");
             $table->string('seccion');
             $table->foreignId("user_id")->constrained("users");
+            
         });
     }
 

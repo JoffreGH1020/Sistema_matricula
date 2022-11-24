@@ -5,7 +5,7 @@
     <div class="row justify-content-center ">
         <div class="col-md-8">
             <div class="card shadow p-3 mb-5 bg-body rounded" >
-                <div class="card-header text-center" style="background-color: #d7e5f3;" ><h5>{{ __('Facultades') }}</h5></div>
+                <div class="card-header text-center" style="background-color: #d7e5f3;" ><b>{{ __('Facultades') }}</b></div>
 
                 <div class="card-body" >
                     @if (session('status'))
@@ -14,7 +14,7 @@
                     </div>
                     @endif
 
-                    <table class="table table-bordered border-dark">
+                    <table class="table table-bordered ">
                         <th>ID de la facultad</th>
                         <th>Nombre de la facultad</th>
 

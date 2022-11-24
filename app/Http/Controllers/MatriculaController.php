@@ -13,22 +13,25 @@ class MatriculaController extends Controller
 
     public function mostrar_matri(){
         
-        $matricula = DB::table('matriculas')->get();
+        $matricula = DB::table('matriculas')
+        ->select('asignatura','seccion','ciclo','creditos')
+        ->join('cursos', 'cursos.id', '=','matriculas.curso_id')
+        ->get();
         return view("matricula.mostrarMatri")
         ->with("matricula" ,$matricula);
     }
 
     public function reg_matri(Request $request){
         $request->validate([
-            "curso" => "required",
-            "ciclo" => "required",
-            "creditos" => "required",
+            "curso_id" => "required",
+            
+            
             "seccion" => "required",
         ]);
         $matricula = new Matricula();
-        $matricula->curso = $request->input("curso");
-        $matricula->ciclo = $request->input("ciclo");
-        $matricula->creditos = $request->input("creditos");
+        $matricula->curso_id = $request->input("curso_id");
+        
+        
         $matricula->seccion = $request->input("seccion");
         $matricula->user_id = Auth::user()->id;
         $matricula->save();

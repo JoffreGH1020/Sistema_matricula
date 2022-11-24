@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card shadow p-3 mb-5 bg-body rounded">
-                <div class="card-header text-center" style="background-color: #d7e5f3;">{{ __('Docentes') }}</div>
+                <div class="card-header text-center" style="background-color: #d7e5f3;"><b>{{ __('Docentes') }}</b></div>
 
                 <div class="card-body">
                     @if (session('status'))
